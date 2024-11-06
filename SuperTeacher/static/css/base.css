@@ -1,0 +1,42 @@
+body {
+    min-block-size: 100vb;
+    font-family: sans-serif;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: hsl(0deg 72% 90%);
+    background-image: radial-gradient(
+            at right bottom,
+            hsl(85deg 85% 35%),
+            hsl(50deg 98% 64%),
+            hsl(0deg 72% 51%));
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(85deg 85% 5% / 50%);
+    padding-block: 2rem;
+    padding-inline: 3rem;
+    margin: 2rem;
+    border-radius: 0.5rem;
+}
+
+.header__logo {
+    margin: 0;
+}
+
+.header__image {
+    display: block;
+}
+
+.header__ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.header__a {
+    color: hsl(0deg 72% 90%);
+    text-decoration: none;
+}
