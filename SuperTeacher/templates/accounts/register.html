@@ -2,8 +2,12 @@
 {% block content %}
     <form class="register-form" method="post">
         {% csrf_token %}
+         <label for="user-type">You are:</label>
+        <select name="type" id="user-type">
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+        </select>
         {{ form }}
-
         <button type="submit">Register</button>
     <p>
             Have an account already?

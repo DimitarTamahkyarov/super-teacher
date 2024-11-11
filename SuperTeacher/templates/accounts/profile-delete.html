@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section id="profile-delete">
+        <div class="form">
+            <h2>Edit User's Profile</h2>
+
+            <form class="delete-form" method="post" action="">
+                {% csrf_token %}
+                <p> You are about to delete your profile!</p>
+                <button type="submit">Delete</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

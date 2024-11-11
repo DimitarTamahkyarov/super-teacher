@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if user.user_type == 'teacher' %}
+        <h1>Welcome teacher this is your dashboard</h1>
+    {% else %}
+        <h1>Welcome student this is your dashboard</h1>
+    {% endif %}
+{% endblock %}

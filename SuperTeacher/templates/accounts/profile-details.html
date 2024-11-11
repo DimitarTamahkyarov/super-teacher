@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <section id="details">
+        {% if user.profile.user_type == 'teacher' %}
+            <h2>Teacher's Profile Details</h2>
+        {% else %}
+            <h2>Student's Profile Details</h2>
+        {% endif %}
+
+        {% if user.profile.profile_image %}
+            <img class="details__img" src="{{ user.profile.profile_image }}" alt="profile img"/>
+        {% else %}
+            <img class="details__img" src="{% static '/img/default.jpg' %}" alt="profile img"/>
+        {% endif %}
+
+        <p id="details-title">{{ user.first_name }} {{ user.last_name }}</p>
+
+        {% if user.profile.user_type == 'teacher' %}
+            <p id="type">{{ user.profile.teacher_type }} Teacher</p>
+            <p id="raiting">Raiting: {{ user.profile.rating }}</p>
+        {% endif %}
+
+        <div id="action-buttons">
+            <a href="{% url 'profile-edit' user.pk %}" id="edit-btn">Edit</a>
+            {#                <a href="{% url 'author-delete' %}" id="delete-btn">Delete</a>#}
+        </div>
+
+    </section>
+{% endblock %}

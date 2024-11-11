@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <section id="profile-edit">
+        <div class="form">
+            <h2>Edit User's Profile</h2>
+
+            <form class="edit-form" method="post" action="">
+                {% csrf_token %}
+                <p>{{ form.first_name }}</p> 
+                <p>{{ form.last_name }}</p>
+                <p>{{ form.email }}</p>
+                <p>{{ form.profile_image }}</p>
+                {% if user.user_type == 'teacher' %}
+                    <p>{{ form.teacher_type }}</p>
+                {% endif %}
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+    </section>
+{% endblock %}

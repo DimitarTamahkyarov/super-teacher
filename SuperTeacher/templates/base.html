@@ -1,5 +1,4 @@
 {% load static %}
-{% load user_info %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,19 +6,20 @@
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=\, initial-scale=1.0"/>
-    <link rel="stylesheet" href="{% static '/css/style.css' %}"/>
+    <link rel="stylesheet" href="/static/css/style.css"/>
     <title>SuperTeacher</title>
 </head>
 
 <body>
 <header class="header">
-    <h1 class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'img/Logo.png' %}" alt="" class="header__image" width="150" height="150"></a></h1>
+    <h1 class="header__logo"><a href="{% url 'index' %}"><img src="{% static 'img/Logo.png' %}" alt=""
+                                                              class="header__image" width="150" height="150"></a></h1>
 
     <nav class="header__nav">
         <ul class="header__ul">
-            
-            <li><a href="{% url 'profile' %}" class="header__a">Profile</a></li>
             {% if request.user.is_authenticated %}
+                <li><a href="{% url 'profile' request.user.pk %}" class="header__a">Profile</a></li>
+                <li><a href="{% url 'dashboard' %}" class="header__a">Dashboard</a></li>
                 <li><a href="{% url 'logout' %}"
                        onclick="event.preventDefault(); 
                    document.getElementById('logout-form').submit()" class="header__a">Logout</a></li>
@@ -36,14 +36,13 @@
 </header>
 
 <main>
-    {% user_info request.user %}
     {% block content %}
     {% endblock %}
 </main>
 
 <div class="footer">
-            <span class="footer-section">
-            </span>
+    <span class="footer-section">
+    </span>
 </div>
 </body>
 </html>

@@ -17,7 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/SuperTeacher" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/SuperTeacher/.venv" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (SuperTeacher)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">

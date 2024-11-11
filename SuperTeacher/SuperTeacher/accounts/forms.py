@@ -1,8 +1,27 @@
+from django import forms
 from django.contrib.auth import get_user_model
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from SuperTeacher.accounts.models import StudentProfile, TeacherProfile
+
+UserModel = get_user_model()
+
+class AppUserCreationForm(UserCreationForm):
+    class Meta(UserCreationForm.Meta):
+        model = UserModel
+        fields = ('email', 'is_teacher')
+
+class AppUserChangeForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = UserModel
 
 
-class UserForm(UserCreationForm):
+class TeacherProfileEditForm(forms.ModelForm):
     class Meta:
-        model = get_user_model()
-        fields = ('user_type', 'first_name', 'last_name', 'profile_image', 'email')
+        model = TeacherProfile
+        exclude = ('user', 'rating')
+
+
+class StudentProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = StudentProfile
+        exclude = ('user', )
