@@ -35,6 +35,7 @@ MY_APPS = [
     'SuperTeacher.accounts',
     'SuperTeacher.common',
     'SuperTeacher.reservations',
+    'SuperTeacher.photos',
 ]
 
 INSTALLED_APPS = [

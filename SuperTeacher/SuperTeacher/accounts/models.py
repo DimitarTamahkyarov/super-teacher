@@ -55,6 +55,11 @@ class StudentProfile(models.Model):
         null=True,
     )
 
+    phone_number = models.CharField(
+        blank=True,
+        null=True,
+    )
+
     def get_full_name(self):
         if self.first_name and self.last_name:
             return self.first_name + " " + self.last_name
@@ -82,6 +87,11 @@ class TeacherProfile(models.Model):
     )
 
     profile_picture = models.URLField(
+        blank=True,
+        null=True,
+    )
+
+    phone_number = models.CharField(
         blank=True,
         null=True,
     )
