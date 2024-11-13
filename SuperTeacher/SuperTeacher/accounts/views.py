@@ -2,8 +2,6 @@ from django.contrib.auth import get_user_model, login
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView
 from django.db.models import Count
-from django.shortcuts import get_object_or_404
-from django.template.context_processors import request
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView, DetailView, DeleteView
 from SuperTeacher.accounts.forms import AppUserCreationForm, StudentProfileEditForm, TeacherProfileEditForm

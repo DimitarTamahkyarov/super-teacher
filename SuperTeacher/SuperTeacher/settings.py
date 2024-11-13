@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 MY_APPS = [
     'SuperTeacher.accounts',
     'SuperTeacher.common',
+    'SuperTeacher.reservations',
 ]
 
 INSTALLED_APPS = [

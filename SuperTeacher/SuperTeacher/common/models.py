@@ -34,3 +34,15 @@ class Comment(models.Model):
         to=TeacherProfile,
         on_delete=models.CASCADE,
     )
+
+
+class Like(models.Model):
+    to_teacher = models.ForeignKey(
+        to=TeacherProfile,
+        on_delete=models.CASCADE,
+    )
+
+    user = models.ForeignKey(
+        to=UserModel,
+        on_delete=models.CASCADE,
+    )

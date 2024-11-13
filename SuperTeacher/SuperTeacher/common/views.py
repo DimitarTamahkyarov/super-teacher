@@ -7,6 +7,8 @@ from django.views.generic import ListView
 from pyperclip import copy
 from SuperTeacher.accounts.models import TeacherProfile
 from SuperTeacher.common.forms import CommentForm
+from SuperTeacher.common.models import Like
+
 
 def index(request):
     return render(request, 'common/index.html')
@@ -37,3 +39,19 @@ def comment_functionality(request, profile_id: int):
             comment.save()
 
         return redirect(request.META.get('HTTP_REFERER') + f'#{profile_id}')
+
+
+@login_required
+def likes_functionality(request, profile_id: int):
+    liked_object = Like.objects.filter(
+        to_profile_id=profile_id,
+        user=request.user
+    ).first()
+
+    if liked_object:
+        liked_object.delete()
+    else:
+        like = Like(to_profile_id=profile_id, user=request.user)
+        like.save()
+
+    return redirect(request.META.get('HTTP_REFERER') + f'#{profile_id}')
